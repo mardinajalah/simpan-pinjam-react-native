@@ -16,7 +16,7 @@ const Header = () => {
             <Text className='font-bold text-white'>Suhai</Text>
           </View>
 
-          <Text className='text-white'>1 januari 2026</Text>
+          <Text className='text-white'>Semua Keuangan</Text>
         </View>
 
         {/* Cart Section */}
