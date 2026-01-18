@@ -20,7 +20,8 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.mardinmardin.simpanpinjam"
+      "package": "com.mardinmardin.simpanpinjam",
+      "versionCode": 2
     },
     "web": {
       "output": "static",
