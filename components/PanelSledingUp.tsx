@@ -118,10 +118,9 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
             keyExtractor={(item) => item.id.toString()}
             showsVerticalScrollIndicator={false}
             style={{
-              maxHeight: 6 * 72,
-              paddingHorizontal: 15,
+              height: 400,
             }}
-            contentContainerStyle={{ gap: 12, paddingVertical: 10 }}
+            contentContainerStyle={{ gap: 12, paddingVertical: 10, paddingHorizontal: 15 }}
             renderItem={({ item }) => (
               <View className='bg-white p-4 rounded-2xl elevation-sm'>
                 <Text className='text-gray-500 text-sm'>{item.tanggal}</Text>
