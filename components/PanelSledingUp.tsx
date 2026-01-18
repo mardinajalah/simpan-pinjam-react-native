@@ -1,6 +1,6 @@
 import { dataMenuKeuangan } from '@/constants/data';
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { Animated, Dimensions, FlatList, Pressable, Text, View } from 'react-native';
+import { Animated, Dimensions, FlatList, PanResponder, Pressable, Text, View } from 'react-native';
 
 const { height } = Dimensions.get('window');
 
@@ -12,8 +12,40 @@ interface PropsPanelSeldingUp {
 const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
   const translateY = useRef(new Animated.Value(height)).current;
   const [rendered, setRendered] = useState(visible);
-
   const [activeMenu, setActiveMenu] = useState(dataMenuKeuangan[0]);
+
+  const DRAG_THRESHOLD = 180;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: (_, gesture) => {
+        return gesture.dy > 5;
+      },
+
+      onPanResponderMove: (_, gesture) => {
+        if (gesture.dy > 0) {
+          translateY.setValue(Math.min(gesture.dy, height));
+        }
+      },
+
+      onPanResponderRelease: (_, gesture) => {
+        if (gesture.dy > DRAG_THRESHOLD) {
+          Animated.timing(translateY, {
+            toValue: height,
+            duration: 250,
+            useNativeDriver: true,
+          }).start(() => {
+            onClose();
+          });
+        } else {
+          Animated.spring(translateY, {
+            toValue: 0,
+            useNativeDriver: true,
+          }).start();
+        }
+      },
+    }),
+  ).current;
 
   useEffect(() => {
     if (visible) {
@@ -35,7 +67,7 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
   if (!rendered) return null;
 
   return (
-    <View className='absolute inset-0 justify-end'>
+    <View className='absolute -inset-2 justify-end'>
       {/* Overlay */}
       <Pressable
         className='absolute inset-0 bg-black/40'
@@ -44,10 +76,13 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
 
       {/* Panel */}
       <Animated.View
+        {...panResponder.panHandlers}
         style={{ transform: [{ translateY }] }}
-        className='bg-white rounded-t-3xl py-6'
+        className='bg-white rounded-t-3xl pt-6'
       >
-        <View className='w-12 h-1 bg-gray-300 rounded-full self-center mb-4' />
+        <View {...panResponder.panHandlers}>
+          <View className='w-12 h-1 bg-gray-300 rounded-full self-center mb-4' />
+        </View>
         <Text className='text-lg font-bold text-center'>Semua Keuangan</Text>
 
         {/* MENU HORIZONTAL */}
@@ -86,7 +121,7 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
               style={{
                 height: 400,
               }}
-              contentContainerStyle={{ gap: 12, paddingVertical: 10, paddingHorizontal: 15 }}
+              contentContainerStyle={{ gap: 12, paddingTop: 10, paddingBottom: 15, paddingHorizontal: 15 }}
               renderItem={({ item }) => (
                 <View className='bg-white p-4 rounded-2xl elevation-sm'>
                   <Text className='text-gray-500 text-sm'>{item.tanggal}</Text>
