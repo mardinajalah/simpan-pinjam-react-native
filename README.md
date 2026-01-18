@@ -1,5 +1,11 @@
 # Welcome to your Expo app 👋
 
+# warning
+
+the main branch is locked, you cannot push.
+
+If you want to push a new feature, you must create your own branch and then submit a new pull request to the develop branch.
+
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
