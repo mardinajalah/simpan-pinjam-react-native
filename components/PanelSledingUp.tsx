@@ -52,55 +52,57 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
 
         {/* MENU HORIZONTAL */}
         <View className='mt-4 bg-[#f4f4f4]'>
-          <FlatList
-            data={dataMenuKeuangan}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            keyExtractor={(item) => item.id.toString()}
-            contentContainerStyle={{
-              gap: 20,
-              paddingVertical: 20,
-              width: '100%',
-              justifyContent: 'center',
-            }}
-            renderItem={({ item }) => {
-              const isActive = item.id === activeMenu.id;
-              return (
-                <Pressable
-                  onPress={() => setActiveMenu(item)}
-                  className={`px-5 py-2 rounded-full elevation-sm ${isActive ? 'bg-blue-600' : 'bg-white'}`}
-                >
-                  <Text className={`font-medium ${isActive ? 'text-white' : 'text-gray-700'}`}>{item.title}</Text>
-                </Pressable>
-              );
-            }}
-          />
-        </View>
+          <View className='z-20'>
+            <FlatList
+              data={dataMenuKeuangan}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              keyExtractor={(item) => item.id.toString()}
+              contentContainerStyle={{
+                gap: 20,
+                paddingVertical: 20,
+                width: '100%',
+                justifyContent: 'center',
+              }}
+              renderItem={({ item }) => {
+                const isActive = item.id === activeMenu.id;
+                return (
+                  <Pressable
+                    onPress={() => setActiveMenu(item)}
+                    className={`px-5 py-2 rounded-full elevation-sm ${isActive ? 'bg-blue-600' : 'bg-white'}`}
+                  >
+                    <Text className={`font-medium ${isActive ? 'text-white' : 'text-gray-700'}`}>{item.title}</Text>
+                  </Pressable>
+                );
+              }}
+            />
+          </View>
 
-        <View className='bg-[#f4f4f4]'>
-          <FlatList
-            data={activeMenu.data}
-            keyExtractor={(item) => item.id.toString()}
-            showsVerticalScrollIndicator={false}
-            style={{
-              height: 400,
-            }}
-            contentContainerStyle={{ gap: 12, paddingVertical: 10, paddingHorizontal: 15 }}
-            renderItem={({ item }) => (
-              <View className='bg-white p-4 rounded-2xl elevation-sm'>
-                <Text className='text-gray-500 text-sm'>{item.tanggal}</Text>
+          <View>
+            <FlatList
+              data={activeMenu.data}
+              keyExtractor={(item) => item.id.toString()}
+              showsVerticalScrollIndicator={false}
+              style={{
+                height: 400,
+              }}
+              contentContainerStyle={{ gap: 12, paddingVertical: 10, paddingHorizontal: 15 }}
+              renderItem={({ item }) => (
+                <View className='bg-white p-4 rounded-2xl elevation-sm'>
+                  <Text className='text-gray-500 text-sm'>{item.tanggal}</Text>
 
-                <View className='flex-row justify-between items-center mt-1'>
-                  <View className='flex-row gap-3 items-center'>
-                    <Text className='text-base font-semibold'>{item.hari}</Text>
-                    <Text className='text-gray-500'>{item.waktu}</Text>
+                  <View className='flex-row justify-between items-center mt-1'>
+                    <View className='flex-row gap-3 items-center'>
+                      <Text className='text-base font-semibold'>{item.hari}</Text>
+                      <Text className='text-gray-500'>{item.waktu}</Text>
+                    </View>
+
+                    <Text className='text-red-700 font-medium'>{item.nominal}</Text>
                   </View>
-
-                  <Text className='text-red-700 font-medium'>{item.nominal}</Text>
                 </View>
-              </View>
-            )}
-          />
+              )}
+            />
+          </View>
         </View>
       </Animated.View>
     </View>
