@@ -18,7 +18,10 @@ const Header = ({ onPressAllFinance }: Props) => {
           </View>
 
           {/* CLICKABLE TEXT */}
-          <Pressable onPress={onPressAllFinance}>
+          <Pressable
+            onPress={onPressAllFinance}
+            className='p-2'
+          >
             <Text className='text-white font-semibold'>Semua Keuangan</Text>
           </Pressable>
         </View>
