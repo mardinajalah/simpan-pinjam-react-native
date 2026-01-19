@@ -1,3 +1,4 @@
+import { ChevronRight } from 'lucide-react-native';
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
@@ -13,16 +14,17 @@ const Header = ({ onPressAllFinance }: Props) => {
       <View className='mt-8 mb-5 rounded-2xl border border-white p-5'>
         <View className='flex-row items-center justify-between'>
           <View className='flex-row items-center gap-2.5'>
-            <Text className='rounded-lg bg-green-600 px-5 py-1 text-white'>aktif</Text>
+            <Text className='rounded-lg bg-green-600 px-5 py-1 text-white elevation-sm'>aktif</Text>
             <Text className='font-bold text-white'>Suhai</Text>
           </View>
 
           {/* CLICKABLE TEXT */}
           <Pressable
             onPress={onPressAllFinance}
-            className='p-2'
+            className='bg-blue-700 rounded-lg pl-5 pr-2 py-1 elevation-sm flex-row items-center gap-2.5'
           >
-            <Text className='text-white font-semibold'>Semua Keuangan</Text>
+            <Text className='text-white font-semibold'>Lihat Semua</Text>
+            <ChevronRight color={'#fff'} />
           </Pressable>
         </View>
 
