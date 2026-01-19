@@ -1,13 +1,18 @@
 import { HandCoins, Landmark, Scroll, Store } from 'lucide-react-native';
 
+const atributeIcon = {
+  color: '#2563eb',
+  size: 30,
+};
+
 export const datafeature = [
   {
     id: 1,
     title: 'simpanan',
     icons: (
       <Landmark
-        color='#2563eb'
-        size={30}
+        color={atributeIcon.color}
+        size={atributeIcon.size}
       />
     ),
   },
@@ -16,8 +21,8 @@ export const datafeature = [
     title: 'pinjaman',
     icons: (
       <HandCoins
-        color='#2563eb'
-        size={30}
+        color={atributeIcon.color}
+        size={atributeIcon.size}
       />
     ),
   },
@@ -26,8 +31,8 @@ export const datafeature = [
     title: 'Slip KSP',
     icons: (
       <Scroll
-        color='#2563eb'
-        size={30}
+        color={atributeIcon.color}
+        size={atributeIcon.size}
       />
     ),
   },
@@ -36,8 +41,8 @@ export const datafeature = [
     title: 'Toko',
     icons: (
       <Store
-        color='#2563eb'
-        size={30}
+        color={atributeIcon.color}
+        size={atributeIcon.size}
       />
     ),
   },
