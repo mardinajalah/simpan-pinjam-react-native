@@ -19,7 +19,7 @@ export default function Index() {
 
       <Header onPressAllFinance={() => setOpen(true)} />
 
-      <View className='mt-10'>
+      <View className='mt-5'>
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}

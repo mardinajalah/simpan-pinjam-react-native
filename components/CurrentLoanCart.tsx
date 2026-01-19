@@ -9,7 +9,7 @@ const CurrentLoanCart = () => {
   const progress = Math.floor((paidLoan / totalLoan) * 100);
 
   return (
-    <View className='bg-white mx-5 mt-10 rounded-2xl elevation-sm'>
+    <View className='bg-white mx-5 mt-5 rounded-2xl elevation-sm'>
       <View className='flex-row justify-end'>
         <View className='bg-red-600 py-2 w-1/3 items-center rounded-tr-2xl rounded-bl-2xl'>
           <Text className='text-white font-bold'>Pinjaman</Text>
