@@ -2,10 +2,12 @@ import CurrentLoanCart from '@/components/CurrentLoanCart';
 import FeatureMenu from '@/components/FeatureMenu';
 import Header from '@/components/Header';
 import PanelSledingUp from '@/components/PanelSledingUp';
+import { dataSemuaRiwayat } from '@/constants/data';
 import { datafeature } from '@/constants/feature';
+import { ChevronRight } from 'lucide-react-native';
 
 import { useState } from 'react';
-import { FlatList, StatusBar, View } from 'react-native';
+import { FlatList, Pressable, StatusBar, Text, View } from 'react-native';
 
 export default function Index() {
   const [open, setOpen] = useState(false);
@@ -42,6 +44,36 @@ export default function Index() {
         visible={open}
         onClose={() => setOpen(false)}
       />
+
+      <View className='bg-white mt-5 mx-5 p-5 rounded-2xl elevation-sm'>
+        <View className='flex-row items-center justify-between'>
+          <Text className='text-xl font-medium text-[#3e3e3e]'>Transaksi</Text>
+          <Pressable className='flex-row items-center justify-between bg-blue-600 py-1 pr-1 pl-5 gap-2.5 rounded-lg elevation-sm'>
+            <Text className='text-white'>Lihat Semua</Text>
+            <ChevronRight
+              color={'#fff'}
+              size={20}
+            />
+          </Pressable>
+        </View>
+
+        <View className='mt-5'>
+          <FlatList
+            data={dataSemuaRiwayat}
+            keyExtractor={(item) => item.id.toString()}
+            contentContainerStyle={{ gap: 15 }}
+            renderItem={({ item }) => (
+              <View className='flex-row items-center justify-between border-b border-gray-200 pb-3'>
+                <View>
+                  <Text className='text-blue-600 text-sm'>{item.tanggal}</Text>
+                  <Text className='text-[#3e3e3e] font-medium'>{item.title}</Text>
+                </View>
+                <Text className='text-red-600 font-bold'>{item.total}</Text>
+              </View>
+            )}
+          />
+        </View>
+      </View>
     </View>
   );
 }

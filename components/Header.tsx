@@ -24,7 +24,10 @@ const Header = ({ onPressAllFinance }: Props) => {
             className='bg-blue-700 rounded-lg pl-5 pr-2 py-1 elevation-sm flex-row items-center gap-2.5'
           >
             <Text className='text-white font-semibold'>Lihat Semua</Text>
-            <ChevronRight color={'#fff'} />
+            <ChevronRight
+              color={'#fff'}
+              size={20}
+            />
           </Pressable>
         </View>
 

@@ -33,3 +33,72 @@ export const dataMenuKeuangan = [
     })),
   },
 ];
+
+export const dataSemuaRiwayat = [
+  {
+    id: 1,
+    title: 'penjualan',
+    total: 'Rp 35.000',
+    tanggal: '01/01/2026',
+    status: 'belum lunas',
+    metode: 'transfer',
+    detail: [
+      {
+        id: 1,
+        name: 'surya 12',
+        nominal: 'Rp 23.000',
+        amount: 1,
+      },
+      {
+        id: 2,
+        name: 'minuman kaleng',
+        nominal: 'Rp 12.000',
+        amount: 1,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Penjualan',
+    total: 'Rp 35.000',
+    tanggal: '01/01/2026',
+    status: 'belum lunas',
+    metode: 'transfer',
+    detail: [
+      {
+        id: 1,
+        name: 'surya 12',
+        nominal: 'Rp 23.000',
+        amount: 1,
+      },
+      {
+        id: 2,
+        name: 'minuman kaleng',
+        nominal: 'Rp 12.000',
+        amount: 1,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Penjualan',
+    total: 'Rp 35.000',
+    tanggal: '01/01/2026',
+    status: 'belum lunas',
+    metode: 'transfer',
+    detail: [
+      {
+        id: 1,
+        name: 'surya 12',
+        nominal: 'Rp 23.000',
+        amount: 1,
+      },
+      {
+        id: 2,
+        name: 'minuman kaleng',
+        nominal: 'Rp 12.000',
+        amount: 1,
+      },
+    ],
+  },
+];
