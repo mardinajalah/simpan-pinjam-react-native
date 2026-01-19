@@ -30,6 +30,7 @@ export default function Index() {
             flexGrow: 1,
             justifyContent: 'center',
             gap: 15,
+            paddingVertical: 5,
           }}
         />
       </View>
