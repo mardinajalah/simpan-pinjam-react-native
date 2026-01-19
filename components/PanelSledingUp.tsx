@@ -67,7 +67,7 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
   if (!rendered) return null;
 
   return (
-    <View className='absolute -inset-1 justify-end'>
+    <View className='absolute inset-0 justify-end'>
       {/* Overlay */}
       <Pressable
         className='absolute inset-0 bg-black/40'
