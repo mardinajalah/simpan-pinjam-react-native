@@ -29,6 +29,7 @@ export default function Index() {
 
         <View className='mt-5'>
           <FlatList
+            scrollEnabled={false}
             horizontal
             showsHorizontalScrollIndicator={false}
             data={datafeature}
@@ -59,6 +60,7 @@ export default function Index() {
 
           <View className='mt-5'>
             <FlatList
+              scrollEnabled={false}
               data={dataSemuaRiwayat}
               keyExtractor={(item) => item.id.toString()}
               contentContainerStyle={{ gap: 15 }}
