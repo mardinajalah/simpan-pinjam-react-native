@@ -67,7 +67,10 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
   if (!rendered) return null;
 
   return (
-    <View className='absolute inset-0 justify-end'>
+    <View
+      className='absolute inset-0 justify-end'
+      style={{ zIndex: 9999, elevation: 9999 }}
+    >
       {/* Overlay */}
       <Pressable
         className='absolute inset-0 bg-black/40'
@@ -77,7 +80,7 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
       {/* Panel */}
       <Animated.View
         {...panResponder.panHandlers}
-        style={{ transform: [{ translateY }] }}
+        style={{ transform: [{ translateY }], zIndex: 10000, elevation: 10000 }}
         className='bg-white rounded-t-3xl pt-6'
       >
         <View {...panResponder.panHandlers}>

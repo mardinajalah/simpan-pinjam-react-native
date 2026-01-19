@@ -39,12 +39,6 @@ export default function Index() {
 
       <CurrentLoanCart />
 
-      {/* SLIDING PANEL */}
-      <PanelSledingUp
-        visible={open}
-        onClose={() => setOpen(false)}
-      />
-
       <View className='bg-white mt-5 mx-5 p-5 rounded-2xl elevation-sm'>
         <View className='flex-row items-center justify-between'>
           <Text className='text-xl font-medium text-[#3e3e3e]'>Transaksi</Text>
@@ -74,6 +68,12 @@ export default function Index() {
           />
         </View>
       </View>
+
+      {/* SLIDING PANEL */}
+      <PanelSledingUp
+        visible={open}
+        onClose={() => setOpen(false)}
+      />
     </View>
   );
 }
