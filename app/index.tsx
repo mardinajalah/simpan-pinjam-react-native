@@ -5,9 +5,9 @@ import PanelSledingUp from '@/components/PanelSledingUp';
 import { dataSemuaRiwayat } from '@/constants/data';
 import { datafeature } from '@/constants/feature';
 import { ChevronRight } from 'lucide-react-native';
-
 import { useState } from 'react';
 import { FlatList, Pressable, StatusBar, Text, View } from 'react-native';
+import { Portal } from 'react-native-paper';
 
 export default function Index() {
   const [open, setOpen] = useState(false);
@@ -70,10 +70,12 @@ export default function Index() {
       </View>
 
       {/* SLIDING PANEL */}
-      <PanelSledingUp
-        visible={open}
-        onClose={() => setOpen(false)}
-      />
+      <Portal>
+        <PanelSledingUp
+          visible={open}
+          onClose={() => setOpen(false)}
+        />
+      </Portal>
     </View>
   );
 }
