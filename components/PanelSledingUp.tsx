@@ -124,7 +124,7 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
               style={{
                 height: 400,
               }}
-              contentContainerStyle={{ gap: 12, paddingTop: 10, paddingBottom: 15, paddingHorizontal: 15 }}
+              contentContainerStyle={{ gap: 12, paddingTop: 10, paddingBottom: 20, paddingHorizontal: 15 }}
               renderItem={({ item }) => (
                 <View className='bg-white p-4 rounded-2xl elevation-sm'>
                   <Text className='text-gray-500 text-sm'>{item.tanggal}</Text>
