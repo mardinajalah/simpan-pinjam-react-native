@@ -6,19 +6,15 @@ import { dataSemuaRiwayat } from '@/constants/data';
 import { datafeature } from '@/constants/feature';
 import { ChevronRight } from 'lucide-react-native';
 import { useState } from 'react';
-import { FlatList, Pressable, ScrollView, StatusBar, Text, View } from 'react-native';
+import { FlatList, Pressable, ScrollView, Text, View } from 'react-native';
 import { Portal } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Index() {
   const [open, setOpen] = useState(false);
 
   return (
-    <View className='flex-1'>
-      <StatusBar
-        barStyle='light-content'
-        backgroundColor='#2563eb'
-      />
-
+    <SafeAreaView className='flex-1 bg-gray-100'>
       <ScrollView
         className='flex-1'
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
@@ -85,6 +81,6 @@ export default function Index() {
           onClose={() => setOpen(false)}
         />
       </Portal>
-    </View>
+    </SafeAreaView>
   );
 }
