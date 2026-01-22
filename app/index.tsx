@@ -14,9 +14,9 @@ export default function Index() {
   const [open, setOpen] = useState(false);
 
   return (
-    <SafeAreaView className='flex-1 bg-gray-100'>
+    <SafeAreaView className='flex-1 bg-blue-600'>
       <ScrollView
-        className='flex-1'
+        className='flex-1 bg-gray-100'
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={16}
