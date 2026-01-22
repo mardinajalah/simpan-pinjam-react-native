@@ -9,7 +9,7 @@ type Props = {
 const Header = ({ onPressAllFinance }: Props) => {
   return (
     <View className='w-full bg-blue-600 p-5 rounded-b-2xl'>
-      <Text className='mt-8 text-xl font-bold capitalize text-white'>gita nusantara sejahtra</Text>
+      <Text className='mt-4 text-xl font-bold capitalize text-white'>gita nusantara sejahtra</Text>
 
       <View className='mt-8 mb-5 rounded-2xl border border-white p-5'>
         <View className='flex-row items-center justify-between'>
