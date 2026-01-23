@@ -2,9 +2,9 @@
   "expo": {
     "name": "simpan-pinjam",
     "slug": "simpan-pinjam",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon-KSP.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "simpanpinjam",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -14,9 +14,8 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/images/android-icon-KSP-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-KSP-background.png"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -33,7 +32,7 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/icon-KSP.png",
-          "imageWidth": 200,
+          "imageWidth": 100,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
           "dark": {
