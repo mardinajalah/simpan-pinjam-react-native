@@ -79,14 +79,16 @@ const PanelSeldingUp: FC<PropsPanelSeldingUp> = ({ visible, onClose }) => {
 
       {/* Panel */}
       <Animated.View
-        {...panResponder.panHandlers}
         style={{ transform: [{ translateY }], zIndex: 10000, elevation: 10000 }}
-        className='bg-white rounded-t-3xl pt-6'
+        className='bg-white rounded-t-3xl'
       >
-        <View {...panResponder.panHandlers}>
+        <View
+          {...panResponder.panHandlers}
+          className='py-4 rounded-t-3xl'
+        >
           <View className='w-12 h-1 bg-gray-300 rounded-full self-center mb-4' />
+          <Text className='text-lg font-bold text-center'>Semua Keuangan</Text>
         </View>
-        <Text className='text-lg font-bold text-center'>Semua Keuangan</Text>
 
         {/* MENU HORIZONTAL */}
         <View className='mt-4 bg-[#f4f4f4]'>
