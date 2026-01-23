@@ -2,16 +2,57 @@ import CurrentLoanCart from '@/components/CurrentLoanCart';
 import FeatureMenu from '@/components/FeatureMenu';
 import Header from '@/components/Header';
 import PanelSledingUp from '@/components/PanelSledingUp';
+import { CurrentLoanCartSkeleton, FeatureMenuSkeleton, HeaderSkeleton, TransactionSkeleton } from '@/components/Skeleton';
 import { dataSemuaRiwayat } from '@/constants/data';
 import { datafeature } from '@/constants/feature';
 import { ChevronRight } from 'lucide-react-native';
-import { useState } from 'react';
-import { FlatList, Pressable, ScrollView, Text, View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { FlatList, Pressable, RefreshControl, ScrollView, Text, View } from 'react-native';
 import { Portal } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Index() {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    setLoading(true);
+
+    // simulasi reload data
+    simulateFetch(() => {
+      setRefreshing(false);
+      setLoading(false);
+    });
+  };
+
+  useEffect(() => {
+    simulateFetch(() => {
+      setLoading(false);
+    });
+  }, []);
+
+  const simulateFetch = (callback: () => void) => {
+    setTimeout(callback, 2000);
+  };
+
+  if (loading) {
+    return (
+      <View className='flex-1 bg-gray-100'>
+        <HeaderSkeleton />
+
+        <View className='flex-row gap-4 px-5 mt-5'>
+          {[1, 2, 3, 4].map((i) => (
+            <FeatureMenuSkeleton key={i} />
+          ))}
+        </View>
+
+        <CurrentLoanCartSkeleton />
+        <TransactionSkeleton />
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView className='flex-1 bg-blue-600'>
@@ -20,6 +61,14 @@ export default function Index() {
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
         showsVerticalScrollIndicator={false}
         scrollEventThrottle={16}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            colors={['#2563eb']}
+            tintColor='#2563eb'
+          />
+        }
       >
         <Header onPressAllFinance={() => setOpen(true)} />
 
