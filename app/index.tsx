@@ -39,18 +39,20 @@ export default function Index() {
 
   if (loading) {
     return (
-      <View className='flex-1 bg-gray-100'>
-        <HeaderSkeleton />
+      <SafeAreaView className='flex-1 bg-blue-600'>
+        <View className='flex-1 bg-gray-100'>
+          <HeaderSkeleton />
 
-        <View className='flex-row gap-4 px-5 mt-5'>
-          {[1, 2, 3, 4].map((i) => (
-            <FeatureMenuSkeleton key={i} />
-          ))}
+          <View className='flex-row gap-4 px-5 mt-5'>
+            {[1, 2, 3, 4].map((i) => (
+              <FeatureMenuSkeleton key={i} />
+            ))}
+          </View>
+
+          <CurrentLoanCartSkeleton />
+          <TransactionSkeleton />
         </View>
-
-        <CurrentLoanCartSkeleton />
-        <TransactionSkeleton />
-      </View>
+      </SafeAreaView>
     );
   }
 
